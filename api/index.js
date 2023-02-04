@@ -9,7 +9,7 @@ const {
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(`${PORT}`, () => {
+  server.listen(PORT, () => {
     console.log(`Abrimos el puerto at ${PORT}`); // eslint-disable-line no-console
   });
 });
