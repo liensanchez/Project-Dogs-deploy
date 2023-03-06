@@ -12,7 +12,7 @@ import Form from './components/Views/Form';
 import Detail from './components/Views/Detail';
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://project-dogs-deploy-production.up.railway.app/'
+axios.defaults.baseURL = 'https://dogbackend.fly.dev/'
 
 
 
