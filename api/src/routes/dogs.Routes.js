@@ -4,7 +4,6 @@ const {allDogsInfo, searchID, searchName, createDog} = require('../controllers/d
 const dogsRoutes = Router()
 
 dogsRoutes.get('/', async (req, res) => {
-  
   const dogName = req.query
 
   let foundDog;

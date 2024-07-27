@@ -46,7 +46,7 @@ function Card(dog) {
     <>
       <DivContainer key={dog.id}>
         <h1>{dog.name}</h1>
-        <Image src={dog.img} alt="" />
+        <Image src={`https://cdn2.thedogapi.com/images/${dog.img}.jpg`} alt="" />
         <div>
           <p>{dog.temperament}</p>
           <h3>Weight:</h3>

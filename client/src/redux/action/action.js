@@ -23,7 +23,7 @@ export const changePage = (page) => {
 
 export const allDogs = () => async (dispatch) => {
 
-  const { data: dogsInfo } = await axios.get('/dogs');
+  const { data: dogsInfo } = await axios.get('/doglist');
 
   dispatch({
 
