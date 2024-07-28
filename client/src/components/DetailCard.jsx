@@ -94,7 +94,7 @@ function DetailCard(showDog) {
         <RightContainer>
           <h1>Breed:</h1>
           <h1>{dog.name}</h1>
-          <Image src={dog.img} alt="" />
+          <Image src={`https://cdn2.thedogapi.com/images/${dog.img}.jpg`} alt="" />
         </RightContainer>
 
       </DataContainer>
