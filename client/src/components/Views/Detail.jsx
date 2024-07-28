@@ -24,7 +24,7 @@ function Detail() {
 
     async function getData() {
       
-      const dogsResponse = await axios.get(`/dogs/${id}`)
+      const dogsResponse = await axios.get(`/doglist/${id}`)
 
       setDog(dogsResponse.data)
     }    
