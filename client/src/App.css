@@ -13,3 +13,9 @@ body{
   background-size: cover;
   background-attachment: fixed;
 }
+
+.custom-container {
+  width: 75%;
+  max-width: 1920px;
+  margin: 0 auto;
+}

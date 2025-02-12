@@ -7,6 +7,7 @@ import styled from "styled-components";
 
 const DivContainer = styled.div`
     display: flex;
+    flex-direction: column;
 `;
 
 function Home() {
@@ -16,13 +17,13 @@ function Home() {
 
     return (
         <>
-            <DivContainer>
-                <Filters />
+            <DivContainer className="custom-container">
+                {/* <Filters /> */}
                 <Cards
                     dog={dog.slice((currentPage - 1) * 8, currentPage * 8)}
                 />
+                <Pagination />
             </DivContainer>
-            <Pagination />
         </>
     );
 }
