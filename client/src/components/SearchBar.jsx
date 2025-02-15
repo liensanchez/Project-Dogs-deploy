@@ -5,24 +5,32 @@ import styled from "styled-components";
 
 const SearchContainer = styled.div`
     display: flex;
+    align-items: center;
+    background-color: #ede1e1;
+    border-radius: 5px;
+    overflow: hidden;
 `;
 
 const Button = styled.button`
-    &:hover {
+    /* &:hover {
         transform: scale(1.15);
-    }
-    background-color: #ede1e1;
+    } */
     color: #8d7070;
+    padding: 5px;
     border-radius: 5px;
-    margin-left: 5px;
     border: none;
-    box-shadow: #2c2c2c 1px 1px 2px;
     transition: all 0.8s;
+    cursor: pointer;
+    background-color: #ede1e1;
 `;
 
 const Input = styled.input`
     border: none;
-    border-radius: 5px;
+    padding: 5px;
+    background-color: #ede1e1;
+    &:focus {
+        outline: none;
+    }
 `;
 
 function SearchBar() {
@@ -48,19 +56,22 @@ function SearchBar() {
             />
             <Button onClick={search}>
                 <svg
-                    width="16.676514"
-                    height="16.663910"
-                    viewBox="0 0 16.6765 16.6639"
-                    fill="none"
+                    fill="#000000"
+                    width="18px"
+                    height="18px"
+                    viewBox="0 0 32 32"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
                 >
-                    <defs />
-                    <path
-                        id="Vector"
-                        d="M16.44 15.25L13.35 12.19C14.55 10.69 15.13 8.79 14.97 6.88C14.81 4.97 13.93 3.19 12.5 1.91C11.07 0.63 9.21 -0.05 7.29 0C5.37 0.05 3.55 0.84 2.19 2.19C0.84 3.55 0.05 5.37 0 7.29C-0.05 9.21 0.63 11.07 1.91 12.5C3.19 13.93 4.97 14.81 6.88 14.97C8.79 15.13 10.69 14.55 12.19 13.35L15.25 16.41C15.33 16.49 15.42 16.55 15.53 16.59C15.63 16.64 15.74 16.66 15.85 16.66C15.96 16.66 16.06 16.64 16.17 16.59C16.27 16.55 16.36 16.49 16.44 16.41C16.59 16.26 16.67 16.05 16.67 15.83C16.67 15.62 16.59 15.41 16.44 15.25ZM7.51 13.35C6.36 13.35 5.23 13 4.27 12.36C3.31 11.72 2.56 10.81 2.12 9.74C1.68 8.68 1.57 7.51 1.79 6.37C2.02 5.24 2.57 4.2 3.39 3.39C4.2 2.57 5.24 2.02 6.37 1.79C7.51 1.57 8.68 1.68 9.74 2.12C10.81 2.56 11.72 3.31 12.36 4.27C13 5.23 13.35 6.36 13.35 7.51C13.35 9.06 12.73 10.54 11.64 11.64C10.54 12.73 9.06 13.35 7.51 13.35Z"
-                        fill="#667479"
-                        fill-opacity="1.000000"
-                        fill-rule="nonzero"
-                    />
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g
+                        id="SVGRepo_tracerCarrier"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M31.707 30.282l-9.717-9.776c1.811-2.169 2.902-4.96 2.902-8.007 0-6.904-5.596-12.5-12.5-12.5s-12.5 5.596-12.5 12.5 5.596 12.5 12.5 12.5c3.136 0 6.002-1.158 8.197-3.067l9.703 9.764c0.39 0.39 1.024 0.39 1.415 0s0.39-1.023 0-1.415zM12.393 23.016c-5.808 0-10.517-4.709-10.517-10.517s4.708-10.517 10.517-10.517c5.808 0 10.516 4.708 10.516 10.517s-4.709 10.517-10.517 10.517z"></path>
+                    </g>
                 </svg>
             </Button>
         </SearchContainer>

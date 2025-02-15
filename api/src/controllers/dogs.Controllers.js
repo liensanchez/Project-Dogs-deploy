@@ -13,6 +13,9 @@ const allDogsInfo = async () => {
             weight: dog.weight.metric.split("-"),
             height: dog.height.metric,
             temperament: dog.temperament,
+            origin: dog.origin,
+            bred_for: dog.bred_for,
+            breed_group	: dog.breed_group,
             lifeSpan: dog.life_span,
             image: dog.reference_image_id,
         };
@@ -71,6 +74,9 @@ const searchName = async (dogName) => {
             weight: dog.weight,
             height: dog.height,
             temperament: dog.temperament,
+            origin: dog.origin,
+            bred_for: dog.bred_for,
+            breed_group	: dog.breed_group,
             lifeSpan: dog.life_span,
             image: dog.image,
         };
@@ -85,6 +91,8 @@ const searchID = async (dogId) => {
     const allDogs = await allDogsInfo();
 
     const dog = allDogs.filter((dog) => dog.id == dogId);
+
+    console.log(dog)
 
     return dog;
 };

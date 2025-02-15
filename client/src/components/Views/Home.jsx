@@ -7,7 +7,15 @@ import styled from "styled-components";
 
 const DivContainer = styled.div`
     display: flex;
+    gap: 45px;
+    padding: 45px 0;
+`;
+
+const DogsDispaly = styled.div`
+    display: flex;
     flex-direction: column;
+    gap: 25px;
+    width: 100%;
 `;
 
 function Home() {
@@ -18,11 +26,13 @@ function Home() {
     return (
         <>
             <DivContainer className="custom-container">
-                {/* <Filters /> */}
-                <Cards
-                    dog={dog.slice((currentPage - 1) * 8, currentPage * 8)}
-                />
-                <Pagination />
+                <Filters />
+                <DogsDispaly>
+                    <Cards
+                        dog={dog.slice((currentPage - 1) * 8, currentPage * 8)}
+                    />
+                    <Pagination />
+                </DogsDispaly>
             </DivContainer>
         </>
     );

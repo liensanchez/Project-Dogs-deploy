@@ -1,63 +1,76 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const DivContainer = styled.div`
-  background-color:#8D7070;
-  color:#ede1e1;
-  border-radius:10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  width: 300px;
-  box-shadow: #2c2c2c 6px 6px 18px;
-  text-align: center;
-  padding:5px;
+    background-color: #8d7070;
+    color: #ede1e1;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: #2c2c2c 6px 6px 18px;
+    max-width: 300px;
+/*     width: 100%; */
 `;
 
 const Image = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius:10px;
-  box-shadow: #2c2c2c  2px 2px 8px;
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    box-shadow: #2c2c2c 2px 2px 8px;
 `;
 
-const Button = styled.button`
-  &:hover{
-    transform: scale(1.15);
-  }
-  background-color:#ede1e1;
-  color:#8d7070;
-  border-radius: 5px;
-  margin:10px;
-  border: none;
-  box-shadow: #2c2c2c 1px 1px 2px;
-  font-size: 15px;
-  transition: all 0.8s;
+const DogName = styled.h2`
+    margin: 0;
+    color: #ede1e1;
+    text-decoration: none;
+    text-transform: capitalize;
 `;
 
+const CardText = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space between;
+    gap: 5px;
+`;
+
+const DogP = styled.p`
+    margin: 0;
+    color: #ede1e1;
+`;
+
+const WeightTitle = styled.h3`
+    margin: 0;
+    color: #ede1e1;
+`;
 
 function Card(dog) {
+    return (
+        <>
+            <DivContainer key={dog.id}>
+                <Link to={`/dogs/${dog.id}`}>
+                    <Image
+                        src={`https://cdn2.thedogapi.com/images/${dog.img}.jpg`}
+                        alt=""
+                    />
+                </Link>
 
-  return (
-    <>
-      <DivContainer key={dog.id}>
-        <h1>{dog.name}</h1>
-        <Image src={`https://cdn2.thedogapi.com/images/${dog.img}.jpg`} alt="" />
-        <div>
-          <p>{dog.temperament}</p>
-          <h3>Weight:</h3>
-          <p>From {dog.weight[0]} to {dog.weight[1]} kilos</p>
-        </div>
-        <Link to={`/dogs/${dog.id}` } > 
-          <Button>More Info</Button>
-        </Link>
-      </DivContainer>
-    </>
-  )
+                <CardText>
+                    <Link
+                        to={`/dogs/${dog.id}`}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <DogName>{dog.name}</DogName>
+                    </Link>
+                    <DogP>{dog.temperament}</DogP>
+                    <WeightTitle>Weight:</WeightTitle>
+                    <DogP>
+                        From {dog.weight[0]} to {dog.weight[1]} kilos
+                    </DogP>
+                </CardText>
+            </DivContainer>
+        </>
+    );
 }
 
-export default Card
+export default Card;

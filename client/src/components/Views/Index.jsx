@@ -33,9 +33,9 @@ const Image = styled.img`
 `;
 
 const Button = styled.button`
-    &:hover {
+    /* &:hover {
         transform: scale(1.15);
-    }
+    } */
     background-color: #ede1e1;
     color: #8d7070;
     border-radius: 5px;

@@ -11,21 +11,15 @@ const NavContainer = styled.div`
 `;
 
 const NavBar = styled.div`
-    width: 75%;
-    max-width: 1920px;
-    margin: 0 auto;
     padding: 20px 0;
     display: flex;
-`;
-
-const SearchContainer = styled.div`
-    display: flex;
-    align-items: center;
+    justify-content: space-between;
 `;
 
 const LogoContainer = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
 `;
 
 const ButtonContainer = styled.div`
@@ -37,14 +31,33 @@ const Logo = styled.img`
     height: 50px;
 `;
 
+const RightContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 15px;
+`;
+const QuickLinks = styled.button`
+    font-weight: 600;
+    color: #ede1e1;
+    border: none;
+    background: none;
+    cursor: pointer;
+`;
+
+const SearchContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
 const Button = styled.button`
-    &:hover {
+    /*     &:hover {
         transform: scale(1.15);
-    }
+    } */
+    height: 31px;
+    cursor: pointer;
     background-color: #ede1e1;
     color: #8d7070;
     border-radius: 5px;
-    margin-left: 5px;
     border: none;
     box-shadow: #2c2c2c 1px 1px 2px;
     transition: all 0.8s;
@@ -59,18 +72,29 @@ function Nav() {
 
     return (
         <NavContainer>
-            <NavBar>
+            <NavBar className="custom-container">
                 <LogoContainer>
                     <Logo src={logo} alt="" onClick={home} />
                 </LogoContainer>
-                <SearchContainer>
-                    <SearchBar />
-                </SearchContainer>
-                <ButtonContainer>
-                    <Link to="/dogs/createdog">
-                        <Button>Create New Breed</Button>
+                <RightContainer>
+                    <Link to="/home">
+                        <QuickLinks>Home</QuickLinks>
                     </Link>
-                </ButtonContainer>
+                    <Link to="/home">
+                        <QuickLinks>About me</QuickLinks>
+                    </Link>
+                    <Link to="/home">
+                        <QuickLinks>Contact</QuickLinks>
+                    </Link>
+                    <SearchContainer>
+                        <SearchBar />
+                    </SearchContainer>
+                    <ButtonContainer>
+                        <Link to="/dogs/createdog">
+                            <Button>Create New Breed</Button>
+                        </Link>
+                    </ButtonContainer>
+                </RightContainer>
             </NavBar>
         </NavContainer>
     );

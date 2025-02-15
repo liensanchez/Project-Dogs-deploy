@@ -1,35 +1,28 @@
-import React from 'react'
-import Card from './Card';
-import styled from 'styled-components'
-
-
+import React from "react";
+import Card from "./Card";
+import styled from "styled-components";
 
 const DivDogs = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 45px;
-  margin-bottom: 45px;
-`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+`;
 
 function Cards(prop) {
-  const {dog} = prop
+    const { dog } = prop;
 
-  const showDog = dog.map((dog) => <Card id={dog.id}
-                                        key={dog.id}
-                                        name={dog.name} 
-                                        img={dog.image}  
-                                        temperament={dog.temperament}
-                                        weight={dog.weight}
-                                        />
-  )
-  return (
-    <DivDogs>
-      {showDog}
-    </DivDogs> 
-
-
-  )
+    const showDog = dog.map((dog) => (
+        <Card
+            id={dog.id}
+            key={dog.id}
+            name={dog.name}
+            img={dog.image}
+            temperament={dog.temperament}
+            weight={dog.weight}
+        />
+    ));
+    return <DivDogs>{showDog}</DivDogs>;
 }
 
-export default Cards
+export default Cards;

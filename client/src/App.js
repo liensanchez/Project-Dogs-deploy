@@ -1,52 +1,53 @@
-import './App.css';
-import {Routes, Route, useLocation} from "react-router-dom";
-import Nav from './components/Nav';
-import Home from './components/Views/Home';
-import Index from './components/Views/Index';
-import SearchResults from './components/Views/SearchResults';
-import Error from './components/Views/Error';
-import {useDispatch, useSelector} from 'react-redux'
-import {useEffect} from 'react'
-import { allDogs, copyOfDogs } from './redux/action/action';
-import Form from './components/Views/Form';
-import Detail from './components/Views/Detail';
-import axios from 'axios'
+import "./App.css";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import Home from "./components/Views/Home";
+import Index from "./components/Views/Index";
+import SearchResults from "./components/Views/SearchResults";
+import Error from "./components/Views/Error";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { allDogs, copyOfDogs } from "./redux/action/action";
+import Form from "./components/Views/Form";
+import Detail from "./components/Views/Detail";
+import axios from "axios";
 
 /* axios.defaults.baseURL = 'https://project-dogs-deploy-production.up.railway.app/' */
-axios.defaults.baseURL = 'http://localhost:8020/'
-
-
+axios.defaults.baseURL = "http://localhost:8020";
 
 function App() {
+    const location = useLocation();
 
-  const location = useLocation()
+    const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
+    const theDogs = useSelector((state) => state.dogs);
 
-  const theDogs = useSelector(state => state.dogs) 
+    useEffect(() => {
+        dispatch(allDogs());
+    }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(allDogs())
-  }, [dispatch])
+    useEffect(() => {
+        theDogs.length > 0 && dispatch(copyOfDogs(theDogs));
+    }, [theDogs, dispatch]);
 
-  useEffect(() => { 
-    theDogs.length > 0 && dispatch(copyOfDogs(theDogs))
-  },[theDogs, dispatch]) 
-
-  return (
-    <>
-    {location.pathname !=='/' && <Nav/>}
-      <Routes>
-        <Route path='/' element={<Index/>}/>
-        <Route path='/home' element={<Home />}/>
-        <Route path='/dogs/:id' element={<Detail/>}/>
-        <Route path='/dogs' element={<SearchResults/>}/>
-        <Route path='/dogs/createdog' element={<Form/>}/>
-        <Route path='/*' element={<Error to="/error" replace/>}/>
-        <Route path='/error' element={<Error/>}/>
-      </Routes>
-    </>
-  );
+    return (
+        <>
+            {location.pathname !== "/" && <Nav />}
+            <main>
+                <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/dogs/:id" element={<Detail />} />
+                    <Route path="/dogs" element={<SearchResults />} />
+                    <Route path="/dogs/createdog" element={<Form />} />
+                    <Route path="/*" element={<Error to="/error" replace />} />
+                    <Route path="/error" element={<Error />} />
+                </Routes>
+            </main>
+            {location.pathname !== "/" && <Footer />}
+        </>
+    );
 }
 
 export default App;

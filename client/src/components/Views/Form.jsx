@@ -41,9 +41,10 @@ const InputForm = styled.input`
 `
 
 const Button = styled.button`
-  &:hover{
+  /* &:hover{
     transform: scale(1.15);
-  }
+  } */
+     cursor: pointer;
   background-color:#8d7070;
   color:#ede1e1;
   border-radius: 5px;
